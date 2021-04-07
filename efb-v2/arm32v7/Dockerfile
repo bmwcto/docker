@@ -1,0 +1,19 @@
+FROM arm32v7/python:alpine3.12
+MAINTAINER BMWCTO <bmw@local>
+
+COPY . /opt/app
+WORKDIR /opt/app
+ENV EFB_DATA_PATH  /opt/app/efb_config
+ENV PROFILE default
+ENV TZ=Asia/Shanghai
+RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories &&\
+    apk --no-cache --virtual build add sed build-base libffi-dev openssl-dev &&\
+    apk --no-cache add jpeg-dev zlib-dev libmagic libwebp-dev ffmpeg cairo &&\
+    pip install -U pip &&\
+    pip config set global.index-url https://pypi.doubanio.com/simple &&\
+    pip install -r requirements.txt &&\
+    rm -rf ~/.cache &&\
+    apk del build  &&\
+    chmod +x /opt/app/init.sh
+VOLUME /opt/app/efb_config
+ENTRYPOINT ["sh", "/opt/app/init.sh"]

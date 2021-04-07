@@ -1,0 +1,14 @@
+image: bmwcto/efb-v2:latest
+
+manifests:
+  -
+    image: bmwcto/efb-v2:arm32v7
+    platform:
+      architecture: arm
+      variant: v7
+      os: linux
+  -
+    image: bmwcto/efb-v2:1
+    platform:
+      architecture: amd64
+      os: linux
