@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM amd64/python:alpine3.12
 LABEL MAINTAINER BMWCTO <bmw@local>
 
 COPY ./res /opt/app
