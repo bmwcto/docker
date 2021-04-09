@@ -2,13 +2,16 @@
 
 * step 1
 
-USE PROXY:
+USE Simple:  
+`docker run -d -t --name "efbwechat" -e TOKEN=xxx -e ADMIN=xxx bmwcto/efb-v2`
+
+USE PROXY:  
 ```
 mkdir -p $HOME/docker/efbwechat &&\
 docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/opt/app/efb_config:rw -e TOKEN=xxx -e ADMIN=xxx -e PROXYURL=xxxx -e PROXYPORT=xx bmwcto/efb-v2
 ```
 
-NO PROXY:
+NO PROXY:  
 ```
 mkdir -p $HOME/docker/efbwechat &&\
 docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/opt/app/efb_config:rw -e TOKEN=xxx -e ADMIN=xxx bmwcto/efb-v2
