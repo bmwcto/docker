@@ -2,9 +2,16 @@
 
 * step 1
 
+USE PROXY:
 ```
 mkdir -p $HOME/docker/efbwechat &&\
 docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/opt/app/efb_config:rw -e TOKEN=xxx -e ADMIN=xxx -e PROXYURL=xxxx -e PROXYPORT=xx bmwcto/efb-v2
+```
+
+NO PROXY:
+```
+mkdir -p $HOME/docker/efbwechat &&\
+docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/opt/app/efb_config:rw -e TOKEN=xxx -e ADMIN=xxx bmwcto/efb-v2
 ```
 
 TOKEN: Telegram Bot Token (@botfather)
