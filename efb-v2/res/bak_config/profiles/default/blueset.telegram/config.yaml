@@ -1,0 +1,5 @@
+token: "token123456" 
+admins:
+- admin123456
+#request_kwargs:
+#                proxy_url: "socks5h://127.0.0.1:1024"

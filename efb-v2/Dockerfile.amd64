@@ -1,7 +1,7 @@
 FROM python:alpine
-MAINTAINER BMWCTO <bmw@local>
+LABEL MAINTAINER BMWCTO <bmw@local>
 
-COPY . /opt/app
+COPY ./res /opt/app
 WORKDIR /opt/app
 ENV EFB_DATA_PATH  /opt/app/efb_config
 ENV PROFILE default

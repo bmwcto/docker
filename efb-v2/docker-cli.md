@@ -61,3 +61,7 @@
 
 - 更新某个容器的启动方式为 `always`  
   `docker update --restart always xxx`
+
+- 以非默认文件名构建镜像  
+  `docker build -f Dockerfile.amd64 -t bmwcto/efb:amd64 .`  
+  `docker build -f Dockerfile.arm32v7 -t bmwcto/efb:arm32v7 .`

@@ -8,7 +8,7 @@ manifests:
       variant: v7
       os: linux
   -
-    image: bmwcto/efb-v2:1
+    image: bmwcto/efb-v2:amd64
     platform:
       architecture: amd64
       os: linux
