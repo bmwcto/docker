@@ -8,13 +8,13 @@ USE Simple:
 USE PROXY:  
 ```
 mkdir -p $HOME/docker/efbwechat &&\
-docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/opt/app/efb_config:rw -e TOKEN=xxx -e ADMIN=xxx -e PROXYURL=xxxx -e PROXYPORT=xx bmwcto/efb-v2
+docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/efb/config -e UID=$(id -u) -e TOKEN=xxx -e ADMIN=xxx -e PROXYURL=xxxx -e PROXYPORT=xx bmwcto/efb-v2
 ```
 
 NO PROXY:  
 ```
 mkdir -p $HOME/docker/efbwechat &&\
-docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/opt/app/efb_config:rw -e TOKEN=xxx -e ADMIN=xxx bmwcto/efb-v2
+docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/efb/config -e UID=$(id -u) -e TOKEN=xxx -e ADMIN=xxx bmwcto/efb-v2
 ```
 
 TOKEN: Telegram Bot Token (@botfather)
@@ -75,10 +75,10 @@ efbwechat
 
 * backup efb data (export from cp of docker):
 
-`mkdir -p $HOME/docker/efbwechat_bak && docker cp efbwechat:/opt/app/efb_config/profiles/default/. $HOME/docker/efbwechat_bak`
+`mkdir -p $HOME/docker/efbwechat_bak && docker cp efbwechat:/efb/config/profiles/default/. $HOME/docker/efbwechat_bak`
 
 * import efb data:
 
-```mkdir -p $HOME/docker/efbwechat/profiles/default && cp -r $HOME/docker/efbwechat_bak/. $HOME/docker/efbwechat/profiles/default/ && docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/opt/app/efb_config:rw -e TOKEN=xxx -e ADMIN=xxx -e PROXYURL=xxxx -e PROXYPORT=xx bmwcto/efb-v2```
+```mkdir -p $HOME/docker/efbwechat/profiles/default && cp -r $HOME/docker/efbwechat_bak/. $HOME/docker/efbwechat/profiles/default/ && docker run -d -t --name "efbwechat" -v $HOME/docker/efbwechat:/efb/config -e UID=$(id -u) -e TOKEN=xxx -e ADMIN=xxx -e PROXYURL=xxxx -e PROXYPORT=xx bmwcto/efb-v2```
 
 
